@@ -1,1 +1,3 @@
-web: gunicorn Fruitdex.wsgi --log-file -
+web: gunicorn Fruitdex.wsgi:application --log-file - --log-level debug
+python manage.py collectstatic --noinput
+manage.py migrate
