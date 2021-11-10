@@ -1,1 +1,1 @@
-web: gunicorn runtimeterrors-fruitdex --log-file -
+web: gunicorn Fruitdex.wsgi
