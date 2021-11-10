@@ -1,1 +1,1 @@
-web: gunicorn Fruitdex.wsgi
+web: gunicorn Fruitdex.wsgi --log-file -
