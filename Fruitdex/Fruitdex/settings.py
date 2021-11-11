@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-#m!^26h)+u#6hhq1^b0r2yvbenb9wi)2j%kj5zcj8rt$g=!duf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://runtimeterrors-fruitdex.herokuapp.com', '127.0.0.1']
 
