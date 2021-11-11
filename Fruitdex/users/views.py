@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, resolve_url
+from django.http import HttpResponse, response
 
 # Create your views here.
 def index(request):
-    return HttpResponse("Hello, World! This is our User page. \n This should have a login page soon")
+    return render(request, "Users/index.html" )
