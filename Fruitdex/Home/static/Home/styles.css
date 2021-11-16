@@ -15,6 +15,9 @@ section{
     flex-direction: column;
     justify-content: flex-start;
     background-repeat: no-repeat;
+    align-items: center;
+    text-align: center;
+
 
 }
 
@@ -89,7 +92,7 @@ header .logo{
 
 .content .buttons:hover{
     opacity: 1;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     background: #99641f ;
     
 }
