@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="{% static 'Users/styles.css' %}" rel = "stylesheet"> </link>
-    <title>Document</title>
+    <title></title>
 </head>
 <body>
+    {% block body%}
 
-    <h1>First HTML page on our user page!</h1>
-
+    {% endblock %}
 </body>
 </html>

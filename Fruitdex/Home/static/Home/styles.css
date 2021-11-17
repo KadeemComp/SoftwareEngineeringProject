@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,700;1,100;1,200;1,300;1,500;1,700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+section{
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    align-items: center;
+    text-align: center;
+
+
+}
+
+header{
+    position: relative;
+    top: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-style:none none solid none;
+    border-width: thin;
+    background:#fff;
+}
+
+header .logo{
+    position: relative;
+    color: black;
+    font-size: 33px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+}
+
+
+.content{
+    max-width: 650px;
+    margin: 60px 100px;
+}
+.content .info h2{
+    color: #99641f ;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height:60px;
+    margin-bottom: 30px;
+
+}
+
+.content .info h2 span{
+    color: black;
+    font-size: 35px;
+    font-weight: 600;
+
+}
+
+.content .info p{
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.content .buttons{
+    border:#99641f 2px solid ;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 17px;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    transition: 0.3s;
+    opacity: 0.6;
+    padding: 10px 30px;
+    margin-left: 15px;
+    width: 6%;
+    
+}
+
+.content .buttons:hover{
+    opacity: 1;
+    color: rgb(255, 255, 255);
+    background: #99641f ;
+    
+}
+

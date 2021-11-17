@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from Users.views import login_view
 
 
 # Create your views here.
@@ -7,15 +8,6 @@ from django.http import HttpResponse
 #here we have a responce to a request which renders an HTML page
 def index(request):
     return render(request, "Home/index.html")
-
-
-#The following are test views
-
-def kadeem(request):
-    return HttpResponse("Good day to you!")
-
-def song(request):
-    return HttpResponse("Hello, Song!")
 
 
 #takes a custom string and added it to the HttpResponse
