@@ -17,3 +17,5 @@ def login_view(request):
 def  logout_view(request):
     pass
 
+def signup_view(request):
+    return render(request, "Users/signup.html" )

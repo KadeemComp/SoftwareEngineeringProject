@@ -10,9 +10,6 @@ def index(request):
     return render(request, "Home/index.html")
 
 
-def login_view(request):
-    return render(request, login_view)
-
 #takes a custom string and added it to the HttpResponse
 #in this case it should place the text at the end of the URL into the HTML file
 
