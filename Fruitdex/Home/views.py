@@ -1,11 +1,27 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from Users.views import login_view
+import pyrebase
+import os
 
+
+config = {
+    'apiKey': os.environ['FIREBASE_SECERT_KEY'], # Hiding API Key
+    'authDomain': "fruitdex-imgdb.firebaseapp.com",
+    'databaseURL': "https://fruitdex-imgdb-default-rtdb.firebaseio.com",
+    'projectId': "fruitdex-imgdb",
+    'storageBucket': "fruitdex-imgdb.appspot.com",
+    'messagingSenderId': "174012390027",
+    'appId': "1:174012390027:web:21fd5be54bf72a55b7928e",
+    'measurementId': "G-CLPNV414GD"
+}
+firebase = pyrebase.initialize_app(config)
+auth = firebase.auth()
+storage = firebase.storage()
 
 # Create your views here.
 
-#here we have a responce to a request which renders an HTML page
+#here we have a response to a request which renders an HTML page
 def index(request):
     return render(request, "Home/index.html")
 
@@ -17,3 +33,6 @@ def greet(request, name):
     return render(request, "Home/greet.html", {
         "name": name
     })
+
+def addfruit(request):
+    return render(request,"addfruit.html")
