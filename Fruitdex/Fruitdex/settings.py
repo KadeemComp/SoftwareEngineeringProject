@@ -33,8 +33,8 @@ ALLOWED_HOSTS = ['https://runtimeterrors-fruitdex.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
-    'Home.apps.HomeConfig',
-    'Users.apps.UsersConfig',
+    'Home',
+    'Users',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
