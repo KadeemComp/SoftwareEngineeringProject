@@ -6,7 +6,7 @@ import os
 
 
 config = {
-    'apiKey': os.environ['FIREBASE_SECERT_KEY'], # Hiding API Key
+    'apiKey': "AIzaSyBzdoeJ9nOpaCctqAvDuO5u5FfnruaeHZ0",
     'authDomain': "fruitdex-imgdb.firebaseapp.com",
     'databaseURL': "https://fruitdex-imgdb-default-rtdb.firebaseio.com",
     'projectId': "fruitdex-imgdb",
