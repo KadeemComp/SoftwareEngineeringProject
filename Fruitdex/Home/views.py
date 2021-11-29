@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from Users.views import login_view
 import pyrebase
 import os
 
