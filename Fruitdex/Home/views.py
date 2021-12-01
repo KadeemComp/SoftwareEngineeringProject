@@ -24,6 +24,11 @@ storage = firebase.storage()
 def index(request):
     return render(request, "Home/index.html")
 
+def logo(request):
+    return render(request, "Home/index.html")
 
 def addfruit(request):
     return render(request,"Home/addfruit.html")
+
+def browse(request):
+    return render(request,"Home/browse.html")
