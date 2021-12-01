@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from Users.views import login_view
 import pyrebase
 import os
 
@@ -25,6 +24,11 @@ storage = firebase.storage()
 def index(request):
     return render(request, "Home/index.html")
 
+def logo(request):
+    return render(request, "Home/index.html")
 
 def addfruit(request):
     return render(request,"Home/addfruit.html")
+
+def browse(request):
+    return render(request,"Home/browse.html")

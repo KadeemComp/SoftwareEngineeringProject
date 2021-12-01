@@ -6,7 +6,8 @@
     box-sizing: border-box;
     font-family: "Poppins",sans-serif;
 }
-
+/*index.html*/
+/*All Section classes on all pages*/
 section{
     position: relative;
     width: 100%;
@@ -14,13 +15,12 @@ section{
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    background-repeat: no-repeat;
     align-items: center;
     text-align: center;
 
 
 }
-
+/*Landing Page Header with Fruitdex Logo*/
 header{
     position: relative;
     top: 0;
@@ -33,10 +33,10 @@ header{
     border-width: thin;
     background:#fff;
 }
-
+/*Landing Page Fruitdex Logo*/
 header .logo{
     position: relative;
-    color: black;
+    color: rgb(0, 0, 0);
     font-size: 33px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     text-decoration: none;
@@ -45,12 +45,12 @@ header .logo{
     letter-spacing: 1px;
 
 }
-
-
+/*Landing Page Div class content*/
 .content{
     max-width: 650px;
     margin: 60px 100px;
 }
+/*Landing Page Heading 2*/
 .content .info h2{
     color: #99641f ;
     font-size: 40px;
@@ -61,20 +61,20 @@ header .logo{
     margin-bottom: 30px;
 
 }
-
+/*Landing Page Heading 2 in Span*/
 .content .info h2 span{
     color: black;
     font-size: 35px;
     font-weight: 600;
 
 }
-
+/*Landing Page paragraph*/
 .content .info p{
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 40px;
 }
-
+/*Landing Page Buttons */
 .content .buttons{
     border:#99641f 2px solid ;
     color: rgb(0, 0, 0);
@@ -89,11 +89,42 @@ header .logo{
     width: 6%;
     
 }
-
+/*Landing Page Buttons Hover*/
 .content .buttons:hover{
     opacity: 1;
     color: rgb(255, 255, 255);
     background: #99641f ;
     
 }
+/*browse.html*/
+.searchBtn .fa-search{
+    font-size:56px;
+    color: black;
+}
+/*Icons*/
+.searchBtn .fa-user{
+    font-size:56px;
+    color: black;
+}
 
+.catalog .fa-plus-circle{
+    font-size: 56px;
+    color: black;
+}
+/*Browse Catalog heading*/
+.catalog h2{
+    color: #99641f ;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height:60px;
+    margin-bottom: 30px;
+}
+/*Browse catalog Search bar*/
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
