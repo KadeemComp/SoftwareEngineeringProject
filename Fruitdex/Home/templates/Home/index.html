@@ -18,11 +18,13 @@
         <div class="content">
             <div class="info">
                 <h2>Discover fresh fruits <br><span>from the Caribbean</span></h2>
-                <p>FruitDex is the best destination to search for a variety of Caribbean fruits. <br> To search for fruits by image please SignUp.</p>
+                <p>FruitDex is the best destination to search for a variety of Caribbean fruits. <br> To add new fruits please SignUp or Login!
+                <br> Click Discover to browse, search and add Caribbean Fruits. </p>
+                
                 <a href="{% url 'Users:signup' %}" class="buttons">SignUp</a>
                 <a href="{% url 'Users:login' %}" class="buttons">Login</a>
-                <a href="#" class="buttons">Discover</a>
-                <a href="{% url 'Home:addfruit' %}" class="buttons">Add Fruit</a>
+                <a href="{% url 'Home:browse' %}" class="buttons">Discover</a>
+                
             </div>
         </div>
     </section>
