@@ -31,4 +31,4 @@ def addfruit(request):
     return render(request,"Home/addfruit.html")
 
 def browse(request):
-    return render(request,"Home/browse.html")
+    return render(request,"Home/browse.html",)

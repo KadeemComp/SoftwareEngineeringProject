@@ -26,10 +26,3 @@ def signup_view(request):
         messages.error(request, f'Username or password is invalid' )
         form = UserRegistrationForm()
     return render(request, "Users/signup.html" , {'form': form})
-
-
-messages.debug
-messages.info
-messages.success
-messages.warning
-messages.error
