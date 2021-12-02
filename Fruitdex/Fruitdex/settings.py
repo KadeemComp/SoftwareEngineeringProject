@@ -35,6 +35,7 @@ ALLOWED_HOSTS = ['https://runtimeterrors-fruitdex.herokuapp.com', '127.0.0.1']
 INSTALLED_APPS = [
     'Home',
     'Users',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -140,3 +141,5 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
