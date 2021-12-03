@@ -1,6 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+#from .models import Fruits
 import pyrebase
+
+#from .models import Fruits
 
 #dummy data of fruits
 
@@ -52,6 +55,7 @@ def addfruit(request):
 
 def browse(request):
     content = {
-        'fruits': fruits
+        'fruits': fruits,
+        'fruits_from_database': Fruits.objects.all()
     }
     return render(request,"Home/browse.html", content)
