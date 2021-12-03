@@ -1,7 +1,26 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 import pyrebase
-import os
+
+#dummy data of fruits
+
+fruits = [
+    {
+       'name':'mango',
+       'scientific_name': 'something',
+       'content': {'Grenada - mango', 'Trinidad - mango'},
+       'author': 'jane doe',
+       'date_posted': 'December 2nd, 2018'
+    },
+    {
+       'name':'apple',
+       'scientific_name': 'somethingElse',
+       'content': {'Grenada - apple', 'Trinidad - apple'},
+       'author': 'john Doe',
+       'date_posted': 'December 1nd, 2018'
+    }
+    ]
+
+
 
 
 config = {
@@ -31,4 +50,7 @@ def addfruit(request):
     return render(request,"Home/addfruit.html")
 
 def browse(request):
-    return render(request,"Home/browse.html",)
+    content = {
+        'fruits': fruits
+    }
+    return render(request,"Home/browse.html", content)
