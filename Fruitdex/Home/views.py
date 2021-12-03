@@ -16,11 +16,9 @@ fruits = [
        'scientific_name': 'somethingElse',
        'content': {'Grenada - apple', 'Trinidad - apple'},
        'author': 'john Doe',
-       'date_posted': 'December 1nd, 2018'
+       'date_posted': 'December 1st, 2018'
     }
     ]
-
-
 
 
 config = {
