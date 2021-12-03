@@ -146,3 +146,4 @@ django_heroku.settings(locals())
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'browse'
+LOGIN_URL = 'login'

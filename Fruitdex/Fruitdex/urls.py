@@ -24,8 +24,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('Home/', include("Home.urls")),
     path('Users/', include("Users.urls")),
-    path('browse', home_views.browse, name='browse' ),
-    path('signup', user_views.signup_view, name = 'signup'),
+    path('browse/', home_views.browse, name='browse' ),
+    path('signup/', user_views.signup_view, name = 'signup'),
     path('login/', auth_views.LoginView.as_view(template_name = 'Users/login.html'), name = 'login'),
-    path('logout/', auth_views.LogoutView.as_view(template_name = 'Users/logout.html'), name = 'logout')
+    path('logout/', auth_views.LogoutView.as_view(template_name = 'Users/logout.html'), name = 'logout'),
+    path('profile/', user_views.user_profile, name = 'profile'),
+
 ]

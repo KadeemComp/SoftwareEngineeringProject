@@ -1,4 +1,4 @@
-from django.contrib.auth import login
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import  messages
 from Home import views as home_views
@@ -10,9 +10,6 @@ def index(request):
 
 def login_view(request):
     return render(request, "Users/login.html" )
-
-def  logout_view(request):
-    pass
 
 def signup_view(request):
     if request.method == "POST":
@@ -26,3 +23,7 @@ def signup_view(request):
         messages.error(request, f'Username or password is invalid' )
         form = UserRegistrationForm()
     return render(request, "Users/signup.html" , {'form': form})
+
+@login_required
+def user_profile(request):
+    return render(request, 'Users/profile.html')

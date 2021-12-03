@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 import pyrebase
 
@@ -43,6 +44,8 @@ def index(request):
 
 def logo(request):
     return render(request, "Home/index.html")
+
+@login_required
 
 def addfruit(request):
     return render(request,"Home/addfruit.html")
