@@ -31,9 +31,20 @@
                     </div>
                 </article>
                    
-                <!-- {% endfor %}
+                {% endfor %}
 
-                {% for fruit in fruits_from_database %} 
+                {% for fruit in fruits %}
+                <div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ fruit.name }}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                {% endfor %}
+
+                <!-- {% for fruit in fruits_from_database %} 
 
                 <article class="media content-section">
                     <div class="media-body">
@@ -46,7 +57,7 @@
                     </div>
                 </article>
                    
-                {% endfor %} -->
+                {% endfor %}  -->
 
             </div>
             <br>

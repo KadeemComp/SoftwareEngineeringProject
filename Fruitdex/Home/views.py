@@ -3,8 +3,6 @@ from django.shortcuts import render
 #from .models import Fruits
 import pyrebase
 
-#from .models import Fruits
-
 #dummy data of fruits
 
 fruits = [
@@ -16,6 +14,20 @@ fruits = [
        'date_posted': 'December 2nd, 2018'
     },
     {
+       'name':'apple',
+       'scientific_name': 'somethingElse',
+       'content': {'Grenada - apple', 'Trinidad - apple'},
+       'author': 'john Doe',
+       'date_posted': 'December 1st, 2018'
+    },
+    {
+       'name':'apple',
+       'scientific_name': 'somethingElse',
+       'content': {'Grenada - apple', 'Trinidad - apple'},
+       'author': 'john Doe',
+       'date_posted': 'December 1st, 2018'
+    },
+     {
        'name':'apple',
        'scientific_name': 'somethingElse',
        'content': {'Grenada - apple', 'Trinidad - apple'},
@@ -48,14 +60,15 @@ def index(request):
 def logo(request):
     return render(request, "Home/index.html")
 
-@login_required
 
+@login_required
 def addfruit(request):
     return render(request,"Home/addfruit.html")
+
 
 def browse(request):
     content = {
         'fruits': fruits,
-        'fruits_from_database': Fruits.objects.all()
+        #'fruits_from_database': Fruits.objects.all()
     }
     return render(request,"Home/browse.html", content)
