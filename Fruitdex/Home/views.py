@@ -1,8 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-#from .models import Fruits
 import pyrebase
-
+from .models import Fruits
 #dummy data of fruits
 
 fruits = [
