@@ -17,21 +17,21 @@ fruits = [
        'scientific_name': 'somethingElse',
        'content': {'Grenada - apple', 'Trinidad - apple'},
        'author': 'john Doe',
-       'date_posted': 'December 1st, 2018'
+       'date_posted': 'December 21st, 2018'
     },
     {
        'name':'apple',
        'scientific_name': 'somethingElse',
-       'content': {'Grenada - apple', 'Trinidad - apple'},
-       'author': 'john Doe',
-       'date_posted': 'December 1st, 2018'
+       'content': {'Grenada - apple1', 'Trinidad - apple1'},
+       'author': 'john1 Doe1',
+       'date_posted': 'December 31st, 2018'
     },
      {
        'name':'apple',
        'scientific_name': 'somethingElse',
-       'content': {'Grenada - apple', 'Trinidad - apple'},
-       'author': 'john Doe',
-       'date_posted': 'December 1st, 2018'
+       'content': {'Grenada - apple3', 'Trinidad - apple4'},
+       'author': 'John Bob Doe',
+       'date_posted': 'December 5th, 2018'
     }
     ]
 
@@ -68,6 +68,6 @@ def addfruit(request):
 def browse(request):
     content = {
         'fruits': fruits,
-        #'fruits_from_database': Fruits.objects.all()
+        'fruits_from_database': Fruits.objects.all()
     }
     return render(request,"Home/browse.html", content)
