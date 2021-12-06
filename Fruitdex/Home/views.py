@@ -11,6 +11,7 @@ from django.views.generic import (
 )
 import pyrebase
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 from .models import Fruit
 =======
 import os
@@ -48,6 +49,9 @@ fruits = [
     }
     ]
 >>>>>>> Stashed changes
+=======
+from .models import Fruit
+>>>>>>> Stashed changes
 
 
 config = {
@@ -75,9 +79,14 @@ def logo(request):
 
 
 @login_required
+<<<<<<< Updated upstream
 def addfruit(request):  
+=======
+def addfruit(request):
+>>>>>>> Stashed changes
     return render(request,"Home/addfruit.html")
         
+
 
 
 def browse(request):
