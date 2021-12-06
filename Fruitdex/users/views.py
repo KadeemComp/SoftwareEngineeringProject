@@ -4,15 +4,9 @@ from django.contrib import  messages
 from Home import views as home_views
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 
-# Create your views here.
-# def index(request):
-#     return render(request, "Users/index.html" )
-
-# def login_view(request):
-#     return render(request, "Users/login.html")
 
 def signup_view(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()

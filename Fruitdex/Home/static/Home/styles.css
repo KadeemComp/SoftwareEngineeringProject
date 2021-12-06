@@ -17,11 +17,10 @@ section{
     justify-content: flex-start;
     align-items: center;
     text-align: center;
-
-
 }
+
 /*Landing Page Header with Fruitdex Logo*/
-header{
+/* header{
     position: relative;
     top: 0;
     width: 100%;
@@ -32,7 +31,8 @@ header{
     border-style:none none solid none;
     border-width: thin;
     background:#fff;
-}
+} */
+
 /*Landing Page Fruitdex Logo*/
 header .logo{
     position: relative;

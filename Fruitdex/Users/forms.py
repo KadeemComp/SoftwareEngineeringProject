@@ -10,7 +10,7 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password1','password2']
+        fields = ['username', 'email','password1','password2']
 
 
 #This form is for undating the user's account information
@@ -19,7 +19,7 @@ class UserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ['username', 'email',]
+        fields = ['username', 'email']
 
 
 #This form is for undating the user's profile
