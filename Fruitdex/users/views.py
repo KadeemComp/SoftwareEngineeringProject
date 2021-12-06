@@ -4,7 +4,6 @@ from django.contrib import  messages
 from Home import views as home_views
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
 
-<<<<<<< Updated upstream
 
 def signup_view(request):
     if request.method == 'POST':
@@ -19,28 +18,6 @@ def signup_view(request):
         form = UserRegistrationForm()
     return render(request, "Users/signup.html" , {'form': form})
 
-=======
-# Create your views here.
-# def index(request):
-#     return render(request, "Users/index.html" )
-
-# def login_view(request):
-#     return render(request, "Users/login.html")
-
-def signup_view(request):
-    if request.method == "POST":
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            username = form.cleaned_data.get('username')
-            messages.success(request, f'Account created for {username}!')
-            return redirect(home_views.index)
-    else:
-        messages.error(request, f'Username or password is invalid' )
-        form = UserRegistrationForm()
-    return render(request, "Users/signup.html" , {'form': form})
-
->>>>>>> Stashed changes
 @login_required
 def user_profile(request):
     if request.method == "POST":
