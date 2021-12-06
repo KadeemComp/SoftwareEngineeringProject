@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 {% extends "Home/home_layout.html" %}
 {% load static %}
     <!--The line below links the css files from the static folder to this HTML page-->
@@ -19,9 +15,8 @@
                 <a href="#"><i class="fa fa-search"></i></a>
             </div>
         </header>
-<<<<<<< Updated upstream
         <div>
-        <button type="button" onclick="location.href='{% url 'log' %}'">Logout</button>
+        <button type="button" onclick="" href = "{% url 'logout' %}">Logout</button>
     </div>
         <h2> Add Image </h2>
         <body>
@@ -34,28 +29,11 @@
                 <Country>
                 Document Upload: 
                 <input type="file" name="files[]" id="files" required> 
-=======
-        <h2> Add Image </h2>
-        <div class="catalog">
-            <form action="/postcreate/" method="post">
-                {% csrf_token %}
-                <br>
-                <p>Fruit Name: </p>
-                <input type="text" name="work" required><br><br>
-                <br><br>
-                <Country>
-                <p>Document Upload: </p>
-                <input type="file" name="files[]" id="files">
->>>>>>> Stashed changes
                 <input type="hidden" name="url" id="url">
                 <button type="button" onclick="uploadimage()">Upload</button><br><br>
                 <input type="submit" value="Submit"><br><br>
             </form>
-<<<<<<< Updated upstream
         </body>
-=======
-        </div>
->>>>>>> Stashed changes
     </section>
 {% endblock %}
 
