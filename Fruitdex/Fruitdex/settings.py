@@ -15,6 +15,7 @@ import os
 import django_heroku
 from pathlib import Path
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -37,7 +38,10 @@ INSTALLED_APPS = [
     'Home',
     'Users',
     'crispy_forms',
+<<<<<<< Updated upstream
     'crispy_bootstrap5',
+=======
+>>>>>>> Stashed changes
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -146,8 +150,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 django_heroku.settings(locals())
 
+<<<<<<< Updated upstream
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+=======
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+>>>>>>> Stashed changes
 
 LOGIN_REDIRECT_URL = 'browse'
 LOGIN_URL = 'login'
