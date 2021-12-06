@@ -1,3 +1,4 @@
+import os
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse
@@ -10,48 +11,7 @@ from django.views.generic import (
     DeleteView
 )
 import pyrebase
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 from .models import Fruit
-=======
-import os
-from .models import Fruits
-#dummy data of fruits
-
-fruits = [
-    {
-       'name':'mango',
-       'scientific_name': 'something',
-       'content': ['Grenada - mango', 'Trinidad - mango'],
-       'author': 'jane doe',
-       'date_posted': 'December 2nd, 2018'
-    },
-    {
-       'name':'apple',
-       'scientific_name': 'somethingElse',
-       'content': ['Grenada - apple', 'Trinidad - apple'],
-       'author': 'john Doe',
-       'date_posted': 'December 21st, 2018'
-    },
-    {
-       'name':'apple',
-       'scientific_name': 'somethingElse',
-       'content': ['Grenada - apple1', 'Trinidad - apple1'],
-       'author': 'john1 Doe1',
-       'date_posted': 'December 31st, 2018'
-    },
-     {
-       'name':'apple',
-       'scientific_name': 'somethingElse',
-       'content': ['Grenada - apple3', 'Trinidad - apple4'],
-       'author': 'John Bob Doe',
-       'date_posted': 'December 5th, 2018'
-    }
-    ]
->>>>>>> Stashed changes
-=======
-from .models import Fruit
->>>>>>> Stashed changes
 
 
 config = {
@@ -66,7 +26,7 @@ firebase = pyrebase.initialize_app(config)
 db = firebase.database()
 
 
-db.child("fruit").push(fruits) # pushing the dummie data to fire
+#db.child("fruit/name").push(fruit) # pushing the dummie data to fire
 
 
 
@@ -79,15 +39,9 @@ def logo(request):
 
 
 @login_required
-<<<<<<< Updated upstream
 def addfruit(request):  
-=======
-def addfruit(request):
->>>>>>> Stashed changes
     return render(request,"Home/addfruit.html")
         
-
-
 
 def browse(request):
     content = {
