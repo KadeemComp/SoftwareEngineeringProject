@@ -1,0 +1,58 @@
+{% extends "Home/home_layout.html" %}
+
+{% block title %}
+        Browse Caribbean FruitDex
+{% endblock %}
+
+{% block content %}
+    <section>
+            <input class= "searchTxt" type="text" name="" placeholder = "Search for Fruits">
+            <div class="searchBtn">
+                <a href="#"><i class="fa fa-search"></i></a>
+                <a href="#"><i class="fa fa-user"></i></a>
+            </div>
+            <hr>
+            <div class="catalog">
+                <h2> Discover Caribbean Fruits</h2>
+            </div>
+            <br>
+            <div>
+
+                {% for fruit in fruits %}
+                <div class="card" style="width: 18rem;">
+                  <img src="..." class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ fruit.name }}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                  </div>
+                </div>
+                {% endfor %}
+
+                {% for fruit in fruits %} 
+
+                <article class="media content-section">
+                  <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
+                    <div class="media-body">
+                      <div class="article-metadata">
+                        <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
+                        <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small> 
+                        <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
+                        <!-- the above link shows the formating date characters -->
+                      </div>
+                      <p class="article-content">{{ fruit.content }}</p>
+                      <small class="text-muted"> By {{ fruit.author }} </small>
+                    </div>
+                </article>
+                   
+                {% endfor %} 
+
+            </div>
+            <br>
+            <div class="catalog">
+                <h2> Add a new fruit<a href="{% url 'addfruit' %}"> here <i class="fa fa-plus-circle"></i></a></h2>
+                
+            </div>
+        </section>
+{% endblock %}
+
