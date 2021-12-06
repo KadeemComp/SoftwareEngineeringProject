@@ -20,6 +20,7 @@
                 {% for fruit in fruits %} <!-- the "fruits" is the dictionary that was passed in through the content dictionary -->
 
                 <article class="media content-section">
+                    <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
                     <div class="media-body">
                       <div class="article-metadata">
                         <a class="mr-2" href="#">{{ fruit.name }}</a>
@@ -47,10 +48,13 @@
                 {% for fruit in fruits_from_database %} 
 
                 <article class="media content-section">
+                  <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
                     <div class="media-body">
                       <div class="article-metadata">
                         <a class="mr-2" href="#">{{ fruit.fruit_name }}</a>
-                        <small class="text-muted">{{ fruit.date_posted }}</small>
+                        <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small> 
+                        <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
+                        <!-- the above link shows the formating date characters -->
                       </div>
                       <p class="article-content">{{ fruit.content }}</p>
                       <small class="text-muted"> By {{ fruit.author }} </small>
@@ -62,7 +66,7 @@
             </div>
             <br>
             <div class="catalog">
-                <h2> Add a new fruit<a href="{% url 'Home:addfruit' %}"> here <i class="fa fa-plus-circle"></i></a></h2>
+                <h2> Add a new fruit<a href="{% url 'addfruit' %}"> here <i class="fa fa-plus-circle"></i></a></h2>
                 
             </div>
         </section>

@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class Fruits(models.Model):
+class Fruit(models.Model):
     fruit_name = models.CharField(max_length=100)
     #image = models.ImageField(default = 'default.jpg', upload_to='fruit_image')
     content = models.TextField()

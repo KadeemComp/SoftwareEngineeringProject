@@ -1,7 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from django.views.generic import ListView
 import pyrebase
-from .models import Fruits
+from .models import Fruit
+
 #dummy data of fruits
 
 fruits = [
@@ -68,6 +70,10 @@ def addfruit(request):
 def browse(request):
     content = {
         'fruits': fruits,
-        'fruits_from_database': Fruits.objects.all()
+        'fruits_from_database': Fruit.objects.all()
     }
     return render(request,"Home/browse.html", content)
+
+class FruitListView(ListView):
+    model = Fruit
+    
