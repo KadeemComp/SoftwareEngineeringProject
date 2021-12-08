@@ -1,8 +1,24 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import  messages
+from django.contrib.auth import authenticate, login, logout
 from Home import views as home_views
 from .forms import UserRegistrationForm, UserUpdateForm, ProfileUpdateForm
+
+def login_view(request):
+    if request.method=="POST":
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect(home_views.index)
+        else:
+            messages.error(request, f'Username or password is invalid' )
+            return redirect('login')
+    return(request, 'Users/login.html')
+
+
 
 
 def signup_view(request):
@@ -14,7 +30,6 @@ def signup_view(request):
             messages.success(request, f'Account created for {username}!')
             return redirect(home_views.index)
     else:
-        messages.error(request, f'Username or password is invalid' )
         form = UserRegistrationForm()
     return render(request, "Users/signup.html" , {'form': form})
 
