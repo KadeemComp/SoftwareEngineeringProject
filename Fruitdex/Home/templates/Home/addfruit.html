@@ -20,7 +20,7 @@
     </div>
         <h2> Add Image </h2>
         <body>
-            <form action="addfruit" method="post">
+            <form action="addfruit" method="post"> 
                 {% csrf_token %}
                 <br>
                 Fruit Name: 
@@ -37,16 +37,18 @@
     </section>
 {% endblock %}
 
-<script> src = "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js"</script>
-<script>
-    var firebaseConfig = {
-    apiKey: str(os.getenv('FIREBASE_API_KEY')),
-    authDomain: "fruitdex-imgdb.firebaseapp.com",
-    databaseURL:  "https://fruitdex-imgdb-default-rtdb.firebaseio.com",
-    storageBucket:  "fruitdex-imgdb.appspot.com",
-  };
 
-  firebase = pyrebase.intializeApp(firebaseConfig);
+    <script src ="https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js"></script>
+<script>
+    var config = {
+        apiKey: str(os.getenv('FIREBASE_API_KEY')),
+        authDomain: "fruitdex-imgdb.firebaseapp.com",
+        databaseURL:  "https://fruitdex-imgdb-default-rtdb.firebaseio.com",
+        storageBucket:  "fruitdex-imgdb.appspot.com",
+    };
+
+  firebase.initializeApp(config);
+  
   function uploadimage(){
       var storage = firebase.storage();
       var file=document.getElementById("files").files[0];
@@ -54,7 +56,7 @@
       var thisref = storageref.child(file.name).put(file);
       thisref.on('state_changed',function(snapshot) {
           console.log('Done');
-      
+
       }, function(error){
           console.log('Error', error);
 
