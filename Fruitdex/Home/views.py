@@ -1,7 +1,9 @@
 import os
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.core.files.storage import default_storage  # provides lazy access to the current default storage system 
+from django.contrib import messages # used to add a message call
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
     ListView,
@@ -17,13 +19,13 @@ from .models import Fruit
 config = {
     'apiKey': str(os.getenv('FIREBASE_API_KEY')), # stored in environment variables for security reasons
     'authDomain': "fruitdex-imgdb.firebaseapp.com",
-    'databaseURL': "https://fruitdex-imgdb-default-rtdb.firebaseio.com",
+    'databaseURL': "",
     'projectId': "fruitdex-imgdb",
     'storageBucket': "fruitdex-imgdb.appspot.com",
 }
 firebase = pyrebase.initialize_app(config)
 
-db = firebase.database()
+storage = firebase.storage()
 
 
 #db.child("fruit/name").push(fruit) # pushing the dummie data to fire
@@ -39,8 +41,16 @@ def logo(request):
 
 
 @login_required
-def addfruit(request):  
-    return render(request,"Home/addfruit.html")
+def addfruit(request):
+    if request.method == 'POST':
+        file = request.POST['files']
+        file_save = default_storage.save(file.name, file)
+        storage.child("fruitsimages/" + file.name).put("media/" + file.name)
+        delete = default_storage.delete(file.name)
+        messages.success(request, "Fruit uploaded to Firebase successfully")
+        return redirect('addfruit')
+    else:
+        return render(request,"Home/addfruit.html")
         
 
 def browse(request):
