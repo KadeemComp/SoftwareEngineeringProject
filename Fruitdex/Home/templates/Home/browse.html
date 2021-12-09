@@ -16,24 +16,27 @@
      <div class="catalog">
        <h2> Browse Catalog</h2>
      </div>
+
+     <div class="row row-cols-1 row-cols-md-4 g-4">
      {% for fruit in fruits %} 
 
      <!-- Cards display -->
-     <article class="media content-section">
-       <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
-         <div class="media-body">
-           <div class="article-metadata">
-             <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
-             <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small> 
-             <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
-             <!-- the above link shows the formating date characters -->
-           </div>
-           <p class="article-content">{{ fruit.content }}</p>
-           <small class="text-muted"> By {{ fruit.author }} </small>
-         </div>
-     </article>
+      <article class="media content-section" style="margin-left: 10px; margin-right: 10px">
+        <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
+              <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small> 
+              <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
+              <!-- the above link shows the formating date characters -->
+            </div>
+            <p class="article-content">{{ fruit.content }}</p>
+            <small class="text-muted"> By {{ fruit.author }} </small>
+          </div>
+      </article>
         
      {% endfor %}
+    </div>
      
      <!-- SideBar  -->
             

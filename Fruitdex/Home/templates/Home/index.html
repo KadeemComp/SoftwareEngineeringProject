@@ -1,8 +1,9 @@
 {% extends "Home/home_layout.html" %}
-<!-- {% block title %}
+{% block title %}
     Welcome To Caribbean FruitDex
-{% endblock title %} -->
+{% endblock title %} 
 
+{% load static %}
     {% block content %}
         <div class="container1 my-4 ">
         
@@ -10,7 +11,7 @@
             <p>FruitDex is the best destination to search for a variety of Caribbean fruits. <br> To add new fruits please SignUp or Login!
             <br> Click Discover to browse, search and add Caribbean Fruits. </p>
             
-            <img src="" class="img-fluid" alt="Landing Image">
+            <!-- <img src= "{% static 'Home/images/landing.jpg' %}" class="img-fluid" alt="Landing Image">  -->
         
             <div class="d-grid gap-3 d-md-flex justify-content-center" >
                 <a href="{% url 'signup' %}" class="btn btn-outline-info">SignUp</a>
