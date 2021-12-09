@@ -1,2 +1,1 @@
-web: gunicorn Fruitdex.wsgi:application --log-file - --log-level debug
-manage.py migrate
+web: gunicorn Fruitdex.wsgi:application 

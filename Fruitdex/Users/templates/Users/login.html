@@ -8,7 +8,7 @@
 {% block content %}
 
 
-<div class = "content-section">
+<div class = "content-section col d-flex justify-content-center">
   <form method="POST">
     {% csrf_token %}
     <fieldset class = "form-group">
@@ -16,8 +16,10 @@
       {{ form|crispy }} 
     <div class = "form-group">
       <button class = "btn btn-outline-info" type = "submit">Login</button>
+      <br>
     </div>
   </form>
+  <br>
   <div class = "border-top pt -3">
     <small class = "text-muted"> 
       Already Have An Account? Sign up <a class= "ml-2" href ="{% url 'signup' %}"> here</a>

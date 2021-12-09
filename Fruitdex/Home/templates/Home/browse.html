@@ -5,54 +5,43 @@
 {% endblock %}
 
 {% block content %}
-    <section>
-            <input class= "searchTxt" type="text" name="" placeholder = "Search for Fruits">
-            <div class="searchBtn">
-                <a href="#"><i class="fa fa-search"></i></a>
-                <a href="#"><i class="fa fa-user"></i></a>
-            </div>
-            <hr>
-            <div class="catalog">
-                <h2> Discover Caribbean Fruits</h2>
-            </div>
-            <br>
-            <div>
+      <!-- Search Bar -->
+     <div class="input-group w-50 p-2">
+      <input id="search-input" type="search" class="form-control" placeholder="Search fruits...">  
+        <button id="search-button" type="button" class="btn btn-primary">
+        <i class="fa fa-search"></i>
+        </button>
+     </div>
+     <hr>
+     <div class="catalog">
+       <h2> Browse Catalog</h2>
+     </div>
+     <div class="row row-cols-1 row-cols-md-5 g-4 container-fluid col d-flex justify-content-center">
+     {% for fruit in fruits %} 
 
-                {% for fruit in fruits %}
-                <div class="card" style="width: 18rem;">
-                  <img src="..." class="card-img-top" alt="...">
-                  <div class="card-body">
-                    <h5 class="card-title">{{ fruit.name }}</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                  </div>
-                </div>
-                {% endfor %}
-
-                {% for fruit in fruits %} 
-
-                <article class="media content-section">
-                  <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
-                    <div class="media-body">
-                      <div class="article-metadata">
-                        <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
-                        <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small> 
-                        <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
-                        <!-- the above link shows the formating date characters -->
-                      </div>
-                      <p class="article-content">{{ fruit.content }}</p>
-                      <small class="text-muted"> By {{ fruit.author }} </small>
-                    </div>
-                </article>
-                   
-                {% endfor %} 
-
+     <!-- Cards display -->
+      <article class="media content-section" style="margin-left: 10px; margin-right: 10px">
+        <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
+              <!-- <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small>  -->
+              <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
+              <!-- the above link shows the formating date characters -->
+              <!-- Add fruit name -->
+               <i class="fa fa-plus-circle"></i>
             </div>
-            <br>
-            <div class="catalog">
-                <h2> Add a new fruit<a href="{% url 'addfruit' %}"> here <i class="fa fa-plus-circle"></i></a></h2>
-                
-            </div>
-        </section>
+            <p class="article-content">{{ fruit.content }}</p> 
+            <!-- <small class="text-muted"> By {{ fruit.author }} </small> -->
+          </div>
+      </article>
+
+        
+     {% endfor %}
+    </div>
+    
+     
+     <!-- SideBar  -->
+            
 {% endblock %}
 
