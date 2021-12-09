@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 #from posix import environ
 import django_heroku
+import dj_database_url
 from pathlib import Path
 
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     'Users',
     'crispy_forms',
     'crispy_bootstrap5',
+    'whitenoise.runserver_nostatic'
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,12 +84,8 @@ WSGI_APPLICATION = 'Fruitdex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+
+DATABASES = { 'default': dj_database_url.config(conn_max_age=600) }
 
 
 # Password validation
