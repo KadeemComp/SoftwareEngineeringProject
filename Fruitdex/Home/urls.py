@@ -8,9 +8,7 @@ from .views import (
 )
 from . import views
 
-
 #set up Upload image url
-
 
 #The "" means no additional arguments which makes it the default page
 urlpatterns = [
@@ -21,5 +19,4 @@ urlpatterns = [
     path('fruit/new/', FruitCreateView.as_view(), name='fruit-create'),
     path('fruit/<int:pk>/update/', FruitUpdateView.as_view(), name='fruit-update'),
     path('fruit/<int:pk>/delete/', FruitDeleteView.as_view(), name='delete')
-    #path('logo', views.logo, name='logo' )
 ]
