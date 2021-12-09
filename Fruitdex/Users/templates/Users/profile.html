@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-  Login
+  User Profile
 {% endblock %}
 
 {% block content %}
@@ -13,6 +13,10 @@
       <div class="media-body">
         <h2 class="account-heading"> {{ user.username }} </h2>
         <p class="text-secondary"> {{ user.email }} </p>
+      </div>
+      <div>
+        <p> Contributions: {{ user.profile.contribution }}</p>
+        <p> Up Votes: {{user.profile.upvotes}}</p>
       </div>
     </div>
     <!-- the update forms are below  -->
