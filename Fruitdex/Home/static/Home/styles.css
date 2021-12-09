@@ -97,13 +97,14 @@ hr{
 /*Browse.html Catalog heading*/
 .catalog h2{
     color: #1f6870;
-    font-size: 40px;
-    text-transform: uppercase;
-    font-weight: 800;
+    font-size: 43px;
     letter-spacing: 2px;
     line-height:60px;
     margin-bottom: 30px;
+    text-align: center;
 }
+
+
 
 /* Browse.html side bar  */
 
