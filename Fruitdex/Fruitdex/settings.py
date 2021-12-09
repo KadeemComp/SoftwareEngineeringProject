@@ -29,7 +29,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY')) # stored in environment variables for 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = str(os.getenv('DEBUG')) # 1 == True // stored in environment variables for security reasons
 
-ALLOWED_HOSTS = ['https://runtimeterrors-fruitdex.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = [' https://carifruitdex.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
