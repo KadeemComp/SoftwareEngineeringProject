@@ -85,7 +85,17 @@ WSGI_APPLICATION = 'Fruitdex.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 
-DATABASES = { 'default': dj_database_url.config(conn_max_age=600) }
+DATABASES = { 
+    'default':{
+        'ENGINE': 'django.db.backends.postgressql_psycopg2',
+        'NAME': 'd84ojsa81d0ovi',
+        'USER': 'rzsjnxtdexaieh',
+        'PASSWORD': '3947b88bc76d6b3591b349c6303e0d5eb3919e904012ec11a2ab1f00da1ee8b1',
+        'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 
 # Password validation
