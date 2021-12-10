@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 
 class Fruit(models.Model):
     fruit_name = models.CharField(max_length=100)
-    #image = models.ImageField(default = 'default.jpg', upload_to='fruit_image')
+    image = models.ImageField(default = 'default.jpg', upload_to='fruit_image')
     content = models.TextField()
     date_posted = models.DateTimeField(default= timezone.now) 
     author = models.ForeignKey(User, on_delete=models.CASCADE)
