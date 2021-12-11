@@ -12,25 +12,7 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-import pyrebase
 from .models import Fruit
-
-
-config = {
-    'apiKey': str(os.getenv('FIREBASE_API_KEY')), # stored in environment variables for security reasons
-    'authDomain': "fruitdex-imgdb.firebaseapp.com",
-    'databaseURL': "",
-    'projectId': "fruitdex-imgdb",
-    'storageBucket': "fruitdex-imgdb.appspot.com",
-}
-firebase = pyrebase.initialize_app(config)
-
-storage = firebase.storage()
-
-
-#db.child("fruit/name").push(fruit) # pushing the dummie data to fire
-
-
 
 #here we have a response to a request which renders an HTML page
 def index(request):
@@ -39,19 +21,6 @@ def index(request):
 def logo(request):
     return render(request, "Home/index.html")
 
-
-@login_required
-def addfruit(request):
-    if request.method == 'POST':
-        file = request.POST['files']
-        file_save = default_storage.save(file.name, file)
-        storage.child("fruitsimages/" + file.name).put("media/" + file.name)
-        delete = default_storage.delete(file.name)
-        messages.success(request, "Fruit uploaded to Firebase successfully")
-        return redirect('addfruit')
-    else:
-        return render(request,"Home/addfruit.html")
-        
 
 def browse(request):
     content = {
