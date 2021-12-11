@@ -36,7 +36,17 @@ body {
     border-radius: 3px;
     margin-bottom: 5px;
   }
-  
+
+  .content-section1{
+    margin: auto;
+    background: #ffffff;
+    width: 400px;
+    border: 1px solid #f3e5e5;
+    border-radius: 3px;
+    text-align: center;
+    align-items: center;
+    padding: 10px;
+  }
   .article-title {
     color: #444444;
   }
