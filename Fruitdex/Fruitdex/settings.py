@@ -32,7 +32,7 @@ SECRET_KEY = env('SECRET_KEY') # stored in environment variables for security re
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG') # 1 == True // stored in environment variables for security reasons
 
-ALLOWED_HOSTS = [' https://carifruitdex.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['https://carifruitdex.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
