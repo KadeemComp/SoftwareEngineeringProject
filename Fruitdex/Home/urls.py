@@ -17,5 +17,6 @@ urlpatterns = [
     path('fruit/<int:pk>/', FruitDetailView.as_view(), name='fruit-detail'),
     path('fruit/new/', FruitCreateView.as_view(), name='fruit-create'),
     path('fruit/<int:pk>/update/', FruitUpdateView.as_view(), name='fruit-update'),
-    path('fruit/<int:pk>/delete/', FruitDeleteView.as_view(), name='delete')
+    path('fruit/<int:pk>/delete/', FruitDeleteView.as_view(), name='delete'),
+    path('search', views.search, name='search-fruit'),
 ]
