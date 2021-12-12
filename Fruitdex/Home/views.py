@@ -12,6 +12,8 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
+
+from Users.models import Profile
 from .models import Fruit
 
 #here we have a response to a request which renders an HTML page
@@ -28,6 +30,17 @@ def browse(request):
     }
     return render(request,"Home/browse.html", content)
 
+def search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        fruits = Fruit.objects.filter(fruit_name__contains=searched)
+        return render(request,"Home/search_fruit.html", {'searched': searched, 'fruits':fruits})
+    
+    else:
+    
+
+        return render(request,"Home/search_fruit.html", )
+
 class FruitListView(ListView):
     model = Fruit
     template_name = 'Home/browse.html' #<app>/<model>_<viewtype>.html
@@ -43,14 +56,18 @@ class FruitCreateView(LoginRequiredMixin ,CreateView):
     model = Fruit
     fields = ['image','fruit_name','content']
 
+    profile = Profile
+
     def form_valid(self, form):
         form.instance.author = self.request.user
+        self.request.user.profile.contribution += 1
+        self.request.user.save()
         return super().form_valid(form)
 
 
 class FruitUpdateView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
     model = Fruit
-    fields = ['fruit_name','content']
+    fields = ['image','fruit_name','content']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
