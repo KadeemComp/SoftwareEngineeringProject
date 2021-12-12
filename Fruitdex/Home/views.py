@@ -35,10 +35,7 @@ def search(request):
         searched = request.POST['searched']
         fruits = Fruit.objects.filter(fruit_name__contains=searched)
         return render(request,"Home/search_fruit.html", {'searched': searched, 'fruits':fruits})
-    
     else:
-    
-
         return render(request,"Home/search_fruit.html", )
 
 class FruitListView(ListView):
