@@ -51,7 +51,7 @@ class FruitDetailView(DetailView):
 
 class FruitCreateView(LoginRequiredMixin ,CreateView):
     model = Fruit
-    fields = ['image','fruit_name','content']
+    fields = ['image','country','fruit_name','content']
 
     profile = Profile
 
