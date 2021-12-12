@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 
 
 class Country(models.Model):
+    id = models.BigAutoField(primary_key=True)
     name = models.CharField(max_length=100)
     flag = models.ImageField(default = 'default.jpg', upload_to='flag_image')
     
