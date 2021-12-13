@@ -6,42 +6,74 @@
 
 {% block content %}
       <!-- Search Bar -->
-     <div class="input-group w-50 p-2">
-      <input id="search-input" type="search" class="form-control" placeholder="Search fruits...">  
-        <button id="search-button" type="button" class="btn btn-primary">
+
+     <form class="input-group w-50 p-2" method="POST" action="{% url 'search-fruit' %}">
+       {% csrf_token %}
+      <input id="search-input" type="search" class="form-control rounded" placeholder="Search fruits..." name = "searched">  
+        <button id="search-button" type="button" class="btn btn-primary" action="{% url 'search-fruit' %}">
         <i class="fa fa-search"></i>
         </button>
-     </div>
+      </form>
+
      <hr>
      <div class="catalog">
        <h2> Browse Catalog</h2>
      </div>
-     <div class="row row-cols-1 row-cols-md-5 g-4 container-fluid col d-flex justify-content-center">
+
+     <!-- <div class="row row-cols-1 row-cols-md-5 g-4 container-fluid col d-flex justify-content-center"> -->
+
+      <!-- <div class="container mx-auto mt-4 d-flex "> -->
+        
+        
+      
+    <div class="cards">
      {% for fruit in fruits %} 
 
+        <a href="{% url 'fruit-detail' fruit.id %}" class="card">
+          <div class="image" ><img src="{{ fruit.image.url }}" class="card-img-top" alt="..."> </div>
+          <div class="card-text">
+            <div class="card-title"><img class="rounded profile-img align-content-center" src = "{{ fruit.country.flag.url }}">   {{ fruit.country }} - {{ fruit.fruit_name }}</div>
+            <!-- <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> -->
+            <div class="more-details"> Read More...</div>
+          </div>
+        </a>
+          
+         
+        <!-- <div class="image" style="background-image: url('https://i.imgur.com/ZTkt4I5.jpg')" ><img src="{{ fruit.image.url }}" class="card-img-top" alt="..."> </div> -->
+
+      <!-- <div class="col-md-4">
+        <div class="col-md-4">
+          <div class="card" style="width: 18rem;">
+            <img src="https://i.imgur.com/ZTkt4I5.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn mr-2"><i class="fas fa-link"></i> Visit Site</a>
+              <a href="#" class="btn"><i class="fab fa-github"></i> Github</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
      <!-- Cards display -->
-      <article class="media content-section" style="margin-left: 10px; margin-right: 10px">
-        <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
+      <!-- <article class="media border rounded border-primary" style="margin-left: .8rem; margin-right: .8rem">
+        <img class="card-img-top" src = "{{ fruit.image.url }}" style="max-width: 100%; max-height: 100%">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
-              <!-- <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small>  -->
-              <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
-              <!-- the above link shows the formating date characters -->
+              <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small>  -->
               <!-- Add fruit name -->
-               <!-- <i class="fa fa-plus-circle"></i> -->
+               <!-- <i class="fa fa-plus-circle"></i>
             </div>
-            <p class="article-content">{{ fruit.content }}</p> 
-            <!-- <small class="text-muted"> By {{ fruit.author }} </small> -->
+            <p class="article-content">
+              <img class="rounded-circle profile-img" src = "{{ fruit.country.flag.url }}"> {{ fruit.country }} - {{ fruit.fruit_name }}</p> 
+            <small class="text-muted"> By {{ fruit.author }} </small>
           </div>
-      </article>
-
+      </article> -->
         
      {% endfor %}
     </div>
-    
-     
-     <!-- SideBar  -->
             
 {% endblock %}
 

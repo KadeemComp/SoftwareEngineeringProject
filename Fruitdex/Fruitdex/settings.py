@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 import environ
 import django_heroku
+import dj_database_url
 from pathlib import Path
 
 
@@ -26,12 +27,12 @@ environ.Env.read_env()
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY') # stored in environment variables for security reasons
+SECRET_KEY = (env('SECRET_KEY') =='True') # stored in environment variables for security reasons
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG') # 1 == True // stored in environment variables for security reasons
 
-ALLOWED_HOSTS = [' https://carifruitdex.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['https://carifruitdex.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'Users',
     'crispy_forms',
     'crispy_bootstrap5',
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -85,12 +87,27 @@ WSGI_APPLICATION = 'Fruitdex.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# DATABASES = { 
+#     'default':{
+#         'ENGINE': 'django.db.backends.postgressql',
+#         'NAME': 'd84ojsa81d0ovi',
+#         'USER': 'rzsjnxtdexaieh',
+#         'PASSWORD': '3947b88bc76d6b3591b349c6303e0d5eb3919e904012ec11a2ab1f00da1ee8b1',
+#         'HOST': 'ec2-3-89-214-80.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -156,12 +173,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 LOGIN_REDIRECT_URL = 'browse'
 LOGIN_URL = 'login'
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+# EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 AWS_S3_REGION_NAME = 'us-east-2' #change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'

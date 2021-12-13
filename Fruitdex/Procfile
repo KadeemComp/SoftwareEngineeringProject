@@ -1,1 +1,1 @@
-web: gunicorn Fruitdex.wsgi:application 
+web: gunicorn Fruitdex.wsgi:application

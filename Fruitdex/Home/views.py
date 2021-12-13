@@ -12,25 +12,9 @@ from django.views.generic import (
     UpdateView,
     DeleteView
 )
-import pyrebase
+
+from Users.models import Profile
 from .models import Fruit
-
-
-config = {
-    'apiKey': str(os.getenv('FIREBASE_API_KEY')), # stored in environment variables for security reasons
-    'authDomain': "fruitdex-imgdb.firebaseapp.com",
-    'databaseURL': "",
-    'projectId': "fruitdex-imgdb",
-    'storageBucket': "fruitdex-imgdb.appspot.com",
-}
-firebase = pyrebase.initialize_app(config)
-
-storage = firebase.storage()
-
-
-#db.child("fruit/name").push(fruit) # pushing the dummie data to fire
-
-
 
 #here we have a response to a request which renders an HTML page
 def index(request):
@@ -40,24 +24,19 @@ def logo(request):
     return render(request, "Home/index.html")
 
 
-@login_required
-def addfruit(request):
-    if request.method == 'POST':
-        file = request.POST['files']
-        file_save = default_storage.save(file.name, file)
-        storage.child("fruitsimages/" + file.name).put("media/" + file.name)
-        delete = default_storage.delete(file.name)
-        messages.success(request, "Fruit uploaded to Firebase successfully")
-        return redirect('addfruit')
-    else:
-        return render(request,"Home/addfruit.html")
-        
-
 def browse(request):
     content = {
         'fruits': Fruit.objects.all() #If this is changed, change "context_object_name" as well
     }
     return render(request,"Home/browse.html", content)
+
+def search(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        fruits = Fruit.objects.filter(fruit_name__contains=searched)
+        return render(request,"Home/search_fruit.html", {'searched': searched, 'fruits':fruits})
+    else:
+        return render(request,"Home/search_fruit.html", )
 
 class FruitListView(ListView):
     model = Fruit
@@ -72,16 +51,18 @@ class FruitDetailView(DetailView):
 
 class FruitCreateView(LoginRequiredMixin ,CreateView):
     model = Fruit
-    fields = ['image','fruit_name','content']
+    fields = ['image','country','fruit_name']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        self.request.user.profile.contribution += 1
+        self.request.user.save()
         return super().form_valid(form)
 
 
 class FruitUpdateView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
     model = Fruit
-    fields = ['fruit_name','content']
+    fields = ['image','country','fruit_name']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -92,6 +73,10 @@ class FruitUpdateView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
         if self.request.user == fruit.author:
             return True
         return False
+
+class FruitUpdateNameView(UpdateView):
+    model = Fruit
+    fields = ['fruit_name']
 
 
 class FruitDeleteView(LoginRequiredMixin, UserPassesTestMixin ,DeleteView):

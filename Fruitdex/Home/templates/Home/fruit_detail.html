@@ -7,7 +7,7 @@
 {% block content %}
 
             <article class="media content-section1">
-                <img class="rounded-circle article-img" src = "{{ object.author.profile.image.url }}">
+                <img class="rounded-circle article-img" src = "{{ object.image.url }}">
                 <div class="media-body">
                     <div class="article-metadata">
                     <a class="mr-2" href="#">{{ object.fruit_name }}</a>
@@ -15,8 +15,10 @@
                     <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
                     <!-- the above link shows the formating date characters -->
                     </div>
-                    <p class="article-content">{{ object.content }}</p>
+                    <p class="article-content">{{ object.country }} - {{ object.fruit_name }}</p>
                     <!-- <small class="text-muted"> By {{ object.author }} </small> -->
+                    <i class="fa fa-plus-circle"></i>
+
                     
                     {% if object.author == user %}
                         <div>
