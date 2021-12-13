@@ -74,6 +74,10 @@ class FruitUpdateView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
             return True
         return False
 
+class FruitUpdateNameView(UpdateView):
+    model = Fruit
+    fields = ['fruit_name']
+
 
 class FruitDeleteView(LoginRequiredMixin, UserPassesTestMixin ,DeleteView):
     model = Fruit
