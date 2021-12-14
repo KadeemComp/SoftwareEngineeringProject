@@ -6,30 +6,27 @@
 
 {% block content %}
 
-            <article class="media content-section1">
-                <img class="rounded-circle article-img" src = "{{ object.image.url }}">
-                <div class="media-body">
-                    <div class="article-metadata">
-                    <a class="mr-2" href="#">{{ object.fruit_name }}</a>
-                    <!-- <small class="text-muted">{{ object.date_posted|date:"F j, Y" }}</small>  -->
-                    <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
-                    <!-- the above link shows the formating date characters -->
+            <div class="cards">
+              <a href="{% url 'fruit-detail' fruit.id %}" class="card">
+                <div class="image" ><img src="{{ object.image.url }}" class="card-img-top" alt="..."> </div>
+                <div class="card-text">
+                    <div class="card-title">{{ object.fruit_name }} 
+                      <img class="rounded profile-img align-content-center" src = "{{ object.country.flag.url }}"> 
+                      <br><i class="fa fa-plus-circle"></i>
                     </div>
-                    <p class="article-content">{{ object.country }} - {{ object.fruit_name }}</p>
-                    <!-- <small class="text-muted"> By {{ object.author }} </small> -->
-                    <i class="fa fa-plus-circle"></i>
-
+                    <!-- <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> -->
+              </a>
                     
                     {% if object.author == user %}
+                      <hr>
                         <div>
                         <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'fruit-update' object.id %}"> Update </a>
                         <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'fruit-update' object.id %}"> Delete </a>
                         </div>
                     {% endif %}
                     </div>
-                    
-            </article>
-
+            </div> 
+                   
 
 {% endblock %}
 
