@@ -51,7 +51,7 @@ class FruitDetailView(DetailView):
 
 class FruitCreateView(LoginRequiredMixin ,CreateView):
     model = Fruit
-    fields = ['image','fruit_name']
+    fields = ['image','country','fruit_name']
 
     def form_valid(self, form):
         form.instance.author = self.request.user
