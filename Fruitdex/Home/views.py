@@ -14,7 +14,7 @@ from django.views.generic import (
 )
 
 from Users.models import Profile
-from .models import Fruit, LocalName
+from .models import Fruit
 
 #here we have a response to a request which renders an HTML page
 def index(request):
@@ -59,16 +59,16 @@ class FruitCreateView(LoginRequiredMixin ,CreateView):
         self.request.user.save()
         return super().form_valid(form)
 
-class FruitAddLocalNameView(LoginRequiredMixin ,CreateView):
+# class FruitAddLocalNameView(LoginRequiredMixin ,CreateView):
 
-    model = LocalName
-    fields = ['country_origin','country_name']
+#     model = LocalName
+#     fields = ['country_origin','country_name']
 
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        self.request.user.profile.contribution += 1
-        self.request.user.save()
-        return super().form_valid(form)
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         self.request.user.profile.contribution += 1
+#         self.request.user.save()
+#         return super().form_valid(form)
 
 
 class FruitUpdateView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
