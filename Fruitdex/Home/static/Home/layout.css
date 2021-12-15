@@ -20,6 +20,16 @@ body {
       height: 5rem;
     }
 
+    .navbar-nav{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
     .logo{
       display: none;
     }
@@ -37,7 +47,7 @@ body {
     .nav-link{
       display: flex;
       align-content: center;
-      padding-bottom: 1.3rem;
+      justify-content: center;
     }
 
     main{
@@ -73,6 +83,7 @@ body {
     .navbar:hover .link-text{
       display: block;
     }
+
   }
 
   .logo{
@@ -98,7 +109,6 @@ body {
   }
 
   .navbar{
-    
     position: fixed;
     background-color: #c5e6ff;
     transition: 200ms ease-in-out;
