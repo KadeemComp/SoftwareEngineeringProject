@@ -3,7 +3,7 @@
 
 *{
     margin:0;
-    padding:0;
+    padding:0px;
     box-sizing: border-box;
     font-family: "Poppins",sans-serif;
     
@@ -13,7 +13,13 @@ body{
 
     background-color: #fafeff;  /* For browsers that do not support gradients */
     /* background-image: linear-gradient(to bottom, rgba(255,0,0,0), #192f40); */
+    margin-top: 30px;
     
+}
+
+/* original color for a tags */
+a:link, a:visited{
+    color: #262631;
 }
 
 /*index.html*/
@@ -161,7 +167,7 @@ hr{
 
 .grid-container{
     display: grid;
-    grid-template-columns: 250px 600px;
+    grid-template-columns: 300px 600px;
 }
 
 .fruit_form{
