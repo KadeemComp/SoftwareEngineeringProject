@@ -5,7 +5,8 @@ from .views import (
     FruitCreateView,
     FruitUpdateView,
     FruitUpdateNameView,
-    FruitDeleteView
+    FruitDeleteView,
+    FruitAddLocalNameView
 )
 from . import views
 
@@ -20,5 +21,6 @@ urlpatterns = [
     path('fruit/<int:pk>/update/', FruitUpdateView.as_view(), name='fruit-update'),
     path('fruit/<int:pk>/delete/', FruitDeleteView.as_view(), name='delete'),
     path('fruit/<int:pk>/update_name/', FruitUpdateNameView.as_view(), name='update-name'),
+    path('fruit/<int:pk>/Add_local_name/', FruitAddLocalNameView.as_view(), name='add-local-name'),
     path('search', views.search, name='search-fruit'),
 ]

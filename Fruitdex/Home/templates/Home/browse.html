@@ -10,8 +10,8 @@
      <form class="input-group w-50 p-2" method="POST" action="{% url 'search-fruit' %}">
        {% csrf_token %}
       <input id="search-input" type="search" class="form-control rounded" placeholder="Search fruits..." name = "searched">  
-        <button id="search-button" type="button" class="btn btn-primary" action="{% url 'search-fruit' %}">
-        <i class="fa fa-search"></i>
+        <button id="search-button" type="submit" class="btn btn-primary" action="{% url 'search-fruit' %}">
+           <i class="fa fa-search"></i>
         </button>
       </form>
 
@@ -32,7 +32,7 @@
         <a href="{% url 'fruit-detail' fruit.id %}" class="card">
           <div class="image" ><img src="{{ fruit.image.url }}" class="card-img-top" alt="..."> </div>
           <div class="card-text">
-            <div class="card-title"><img class="rounded profile-img align-content-center" src = "{{ fruit.country.flag.url }}">   {{ fruit.country }} - {{ fruit.fruit_name }}</div>
+            <div class="card-title"><img class="rounded profile-img align-content-center" src = "{{ fruit.country.flag.url }}">   {{ fruit.country.name }} - {{ fruit.fruit_name }}</div>
             <!-- <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> -->
             <div class="more-details"> Read More...</div>
           </div>
