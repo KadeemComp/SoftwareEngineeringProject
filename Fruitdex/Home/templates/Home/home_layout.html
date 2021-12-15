@@ -30,33 +30,68 @@
 </head>
 <body>
     
-    <!-- <nav>
-      <a href="#first"><i class="far fa-user"></i></a>
-      <a href="#second"><i class="fas fa-briefcase"></i></a>
-      <a href="#third"><i class="far fa-file"></i></a>
-      <a href="#fourth"><i class="fas fa-address-card">Hello</i></a>
+    <nav class="navbar">
+      <ul class="navbar-nav">
+        <li class="logo">
+          <a href="#" class="nav-link">
+            <span class="logo-link link-text nav-link">FruitDex</span>
+            <i class="fas fa-seedling"></i>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{% url 'browse' %}" class="nav-link">
+            <i class="fas fa-book-reader"></i>
+            <span class="link-text">Browse</span>
+          </a>
+        </li>
+
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <a href="{% url 'profile' %}" class="nav-link">
+            <img class="rounded-circle profile-img" src = "{{ user.profile.image.url }}"> 
+            <span class="link-text">{{user.username}}</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="% url 'fruit-create' %}" class="nav-link">
+            <i class="far fa-plus-square"></i>
+            <span class="link-text">Add Fruit</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a href="{% url 'logout' %}" class="nav-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="link-text">Logout</span>
+          </a>
+        </li>
+
+      {% else %}
+
+      <li class="nav-item">
+        <a href="{% url 'login' %}" class="nav-link">
+          <i class="fas fa-sign-in-alt"></i>
+          <span class="link-text">Login</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="{% url 'signup' %}" class="nav-link">
+          <i class="fas fa-user-plus"></i>
+          <span class="link-text">Register</span>
+        </a>
+      </li>
+
+      {% endif %}
+    </ul>
+
     </nav>
-    <i class="fas fa-user"></i>
-  <div class= 'container'> 
-    <section id= 'first'>
-      <h1>First</h1>
-    </section>
-  
-    <section id= 'second'>
-      <h1>Second</h1>
-    </section>
-    
-    <section id= 'third'>
-      <h1>Third</h1>
-    </section>
-    
-    <section id= 'fourth'>
-      <h1>Fourth</h1>
-    </section>
-  </div> -->
+   
 
   
-    <header class="site-header">
+    <!-- <header class="site-header">
         <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
           <div class="container">
             <a class="navbar-brand mr-4" href="/">Fruitdex</a>
@@ -64,13 +99,13 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
-              <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="{% url 'browse' %}">Browse</a>
-              </div>
+              <div class="navbar-nav"> -->
+                <!-- <a class="nav-item nav-link" href="/">Home</a> -->
+                <!-- <a class="nav-item nav-link" href="{% url 'browse' %}">Browse</a>
+              </div> -->
               <!-- Navbar Right Side -->
               
-              <div class="navbar-nav ms-auto">
+              <!-- <div class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
                   <a class="nav-item nav-link" href="{% url 'profile' %}"><img class="rounded-circle profile-img" src = "{{ user.profile.image.url }}"> {{user.username}}</a>
                   <a class="nav-item nav-link" href="{% url 'fruit-create' %}"> Add Fruit</a>
@@ -85,21 +120,21 @@
             </div>
           </div>
         </nav>
-      </header>
+      </header> -->
 
 
     {% if messages %}
         {% for message in messages %}
-            <div class = "alert alert-{{ message.tags }}">{{ message }}
-            </div> 
+            <div class = "alert alert-{{ message.tags }} align-content-center">
+            {{ message }} </div> 
         {% endfor %}
     {% endif %}
 
     <main role="main" class="container">
         <!-- <div class="row"> -->
-            <div >
+            
             {% block content %}{% endblock %}
-            </div>
+            
             <!-- <div class="col-md-4">
             <div class="content-section">
                 <h3>Our Sidebar</h3>
