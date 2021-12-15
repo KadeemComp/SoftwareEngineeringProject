@@ -9,7 +9,7 @@ from django.contrib.auth.models import User
 class Country(models.Model):
     name = models.CharField(max_length=64)
     flag = models.ImageField(default = 'default_flag_image.jpg', upload_to='flag_image')
-    
+
     def __str__(self):
         return self.name
 
@@ -29,3 +29,11 @@ class Fruit(models.Model):
     def get_absolute_url(self):
         return reverse('fruit-detail', kwargs= {'pk': self.pk})
 
+
+# class LocalName(models.Model):
+#     fruit = models.ForeignKey(Fruit, related_name= 'local_name',on_delete=models.CASCADE)
+#     country_name = models.CharField(max_length=64)
+#     country_origin = models.ForeignKey(Country,on_delete=models.CASCADE)
+    
+#     def __str__(self):
+#         return self.country_name

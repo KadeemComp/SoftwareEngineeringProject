@@ -59,10 +59,21 @@ class FruitCreateView(LoginRequiredMixin ,CreateView):
         self.request.user.save()
         return super().form_valid(form)
 
+# class FruitAddLocalNameView(LoginRequiredMixin ,CreateView):
+
+#     model = LocalName
+#     fields = ['country_origin','country_name']
+
+#     def form_valid(self, form):
+#         form.instance.author = self.request.user
+#         self.request.user.profile.contribution += 1
+#         self.request.user.save()
+#         return super().form_valid(form)
+
 
 class FruitUpdateView(LoginRequiredMixin, UserPassesTestMixin ,UpdateView):
     model = Fruit
-    fields = ['image','country','fruit_name']
+    fields = ['image','country_name','fruit_name']
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -10,8 +10,8 @@
      <form class="input-group w-50 p-2" method="POST" action="{% url 'search-fruit' %}">
        {% csrf_token %}
       <input id="search-input" type="search" class="form-control rounded" placeholder="Search fruits..." name = "searched">  
-        <button id="search-button" type="button" class="btn btn-primary" action="{% url 'search-fruit' %}">
-        <i class="fa fa-search"></i>
+        <button id="search-button" type="submit" class="btn btn-primary" action="{% url 'search-fruit' %}">
+           <i class="fa fa-search"></i>
         </button>
       </form>
 
