@@ -6,7 +6,17 @@
 
 {% block content %}
 
-            <div class="cards">
+<div class="cards" style="max-width: 30rem;">
+    <div class="image" ><img src="{{ object.image.url }}" class="card-img-top" alt="..."> </div>
+    <div class="card-text">
+        <div class="card-title">{{ object.fruit_name }} 
+          <img class="rounded profile-img align-content-center" src = "{{ object.country.flag.url }}"> 
+          <br><i class="fa fa-plus-circle"></i>
+        </div>
+        <!-- <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> -->    
+</div>        
+
+          <!-- <div class="cards">
               <a href="{% url 'fruit-detail' fruit.id %}" class="card">
                 <div class="image" ><img src="{{ object.image.url }}" class="card-img-top" alt="..."> </div>
                 <div class="card-text">
@@ -14,8 +24,8 @@
                       <img class="rounded profile-img align-content-center" src = "{{ object.country.flag.url }}"> 
                       <br><i class="fa fa-plus-circle"></i>
                     </div>
-                    <!-- <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> -->
-              </a>
+                     <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> 
+              </a> -->
                     
                     {% if object.author == user %}
                       <hr>

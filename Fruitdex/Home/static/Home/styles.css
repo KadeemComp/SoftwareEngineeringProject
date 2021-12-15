@@ -75,9 +75,9 @@ body{
 }
 
 /* This makes all images show at max width including fruit detail */
-img{
+/* img{
     max-width: 100%;
-}
+} */
 
 /* Browse.html Search button icon */
 #search-button{
