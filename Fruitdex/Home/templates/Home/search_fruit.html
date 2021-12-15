@@ -14,14 +14,16 @@
      </div>
      <hr>
      <div class="catalog">
-       <h2> You searched for ...</h2>
+      {% if searched %}
+      <h2>You searched for {{searched}}</h2>
+      <br>
+      {%else%}
+      <h2>You didn't search for anything </h2>
+      {% endif %}
      </div>
      <div class="row row-cols-1 row-cols-md-5 g-4 container-fluid col d-flex justify-content-center">
          
-    {% if searched %}
-        <h3>You searched for {{searched}}</h3>
-        <br>
-    {% endif %}
+
     <br/>
 
     {% for fruit in fruits %} 
