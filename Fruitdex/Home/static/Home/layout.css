@@ -8,10 +8,6 @@ body {
     color: #444444;
   }
   
-  ul {
-    margin: 0;
-  }
-  
   .bg-steel {
     background-color: #192f40;
   }
@@ -42,20 +38,29 @@ body {
     .logo{
       display: none;
     }
-
-    .navbar:hover {
-      width: 12rem;
+    
+    .nav-item{
+      width: 100%;
     }
 
     .navbar-nav{
+      display: flex;
       flex-direction: row;
-    }
-    .nav-link{
       justify-content: center;
+    }
+
+    .nav-link{
+      display: flex;
+      align-items: center;
+      padding-bottom: 1.3rem;
     }
 
     .main{
       margin: 0;
+    }
+
+    .link-text{
+      display: none;
     }
 
   }
@@ -67,33 +72,43 @@ body {
       height: 100vh;
     }
 
+    .navbar-nav{
+      flex-direction: column;
+    }
+
     .navbar:hover {
-      width: 12rem;
+      width: 15.5rem;
     }
 
     .navbar:hover .link-text{
       display: inline;
       transition: opacity 600ms;
     }
+
+    .navbar:hover .link-text{
+      display: block;
+    }
   }
 
   .logo{
     font-weight: bold;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+    margin-bottom: 5rem;
     text-align: center;
+    align-items: center;
     color: #dddddd; 
     font-size: 1.5rem;
     letter-spacing: 0.3ch;
     width: 100%;
   }
 
-  .logo i{
+  .logo svg{
     transform: rotate(0deg);
     transition: transform 600ms;
   }
 
-  .navbar:hover .logo i{
+  .navbar:hover .logo svg{
     transform: rotate(-180deg);
   }
 
@@ -119,37 +134,40 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    align-items: auto;
+    height: 100%;
   }
 
   .nav-item{
     width: 100%;
   }
 
-  .nav-item:last-child{
+  /* .nav-item:first-child{
     margin-top: auto;
-  }
+  } */
 
   .nav-link{
     display: flex;
     align-items: center;
     height: 5rem;
-    color: red;
+    color: rgb(59, 153, 241);
     text-decoration: none;
     filter: grayscale(100%) opacity(0.7);
+    transition: 600ms;
   }
 
   .nav-link:hover{
     filter: grayscale(0%) opacity(1);
+    background: rgb(167, 167, 167);
     color: #1f6870;
   }
 
-  .navbar:hover .link-text{
-    display: block;
+  .nav-link svg{
+    min-width: 2rem;
+    margin: 0 1.5rem;
   }
 
-  .nav-link i{
+  .nav-link img{
     min-width: 2rem;
     margin: 0 1.5rem;
   }
@@ -159,21 +177,14 @@ body {
     margin-left: 1rem;
   }
 
-  .main{
-    margin-left: 5rem;
-    padding: 1rem;
+  main{
+    margin-left: 7rem;
+    padding: 5rem;
   }
 
-  .fas{
-    color: #ffffff;
-  }
-
-  .far{
-    color: #ffffff;
-  }
-
-  .fas, .far{
+  .bi{
     transition: 600ms;
+    color: rgb(59, 153, 241);
   }
   
   .content-section {
