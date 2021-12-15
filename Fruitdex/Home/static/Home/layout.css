@@ -25,9 +25,11 @@ body {
       padding: 0;
       margin: 0;
       display: flex;
+      flex-direction: row;
       justify-content: center;
       align-items: center;
       width: 100%;
+      position: fixed;
     }
 
     .logo{
@@ -38,19 +40,13 @@ body {
       width: 100%;
     } */
 
-    .navbar-nav{
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-    }
-
     .nav-link{
       display: flex;
       align-content: center;
       justify-content: center;
     }
 
-    main{
+    .main{
       margin-bottom: 5rem;
     }
 
@@ -69,6 +65,7 @@ body {
 
     .navbar-nav{
       flex-direction: column;
+      position: fixed;
     }
 
     .navbar:hover {
@@ -82,6 +79,11 @@ body {
 
     .navbar:hover .link-text{
       display: block;
+    }
+
+    .main{
+      margin-left: 5rem;
+      padding: 1rem;
     }
 
   }
@@ -109,6 +111,7 @@ body {
   }
 
   .navbar{
+    z-index: 1;
     position: fixed;
     background-color: #c5e6ff;
     transition: 200ms ease-in-out;
@@ -172,10 +175,6 @@ body {
     margin-left: 1rem;
   }
 
-  main{
-    margin-left: 7rem;
-    padding: 5rem;
-  }
 
   .bi{
     transition: 600ms;
