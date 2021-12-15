@@ -18,6 +18,7 @@ class Country(models.Model):
 class Fruit(models.Model):
     fruit_name = models.CharField(max_length=64)
     image = models.ImageField(default = 'default.jpg', upload_to='fruit_image')
+    #country = models.ForeignKey(Country,default=1, on_delete=models.CASCADE, related_name= "country")
     content = models.TextField()
     date_posted = models.DateTimeField(default= timezone.now) 
     author = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
