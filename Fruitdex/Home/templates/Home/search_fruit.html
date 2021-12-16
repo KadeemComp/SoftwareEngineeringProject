@@ -7,7 +7,7 @@
 {% block content %}
       <!-- Search Bar -->
 
-      <form class="input-group w-50 p-2" method="POST" action="{% url 'search-fruit' %}">
+      <form class="input-group w-50 mw-75 mw p-2" method="POST" action="{% url 'search-fruit' %}">
         {% csrf_token %}
        <input id="search-input" type="search" class="form-control rounded" placeholder="Search fruits..." name = "searched">  
          <button id="search-button" type="submit" class="btn btn-primary" action="{% url 'search-fruit' %}">
@@ -31,21 +31,17 @@
     {% for fruit in fruits %} 
 
      <!-- Cards display -->
-      <article class="media content-section" style="margin-left: 10px; margin-right: 10px">
-        <img class="rounded-circle article-img" src = "{{ fruit.author.profile.image.url }}">
-          <div class="media-body">
-            <div class="article-metadata">
-              <a class="mr-2" href="{% url 'fruit-detail' fruit.id %}">{{ fruit.fruit_name }}</a>
-              <!-- <small class="text-muted">{{ fruit.date_posted|date:"F j, Y" }}</small>  -->
-              <!-- https://docs.djangoproject.com/en/3.2/ref/templates/builtins/ --> 
-              <!-- the above link shows the formating date characters -->
-              <!-- Add fruit name -->
-               <!-- <i class="fa fa-plus-circle"></i> -->
-            </div>
-            <p class="article-content">{{ fruit.content }}</p> 
-            <!-- <small class="text-muted"> By {{ fruit.author }} </small> -->
-          </div>
-      </article>
+     <a href="{% url 'fruit-detail' fruit.id %}" class="card">
+      <div class="image" ><img src="{{ fruit.image.url }}" class="card-img-top" alt="..."> </div>
+      <div class="card-text">
+        <div class="card-title">{{ fruit.fruit_name }} 
+          <img class="rounded profile-img align-content-center" src = "{{ fruit.country.flag.url }}"> 
+          <!-- <div class="overlay">{{fruit.country}}</div>  -->
+        </div>
+        <!-- <div class="card-content">Some quick example text to build on the card title and make up the bulk of the card's content.</div> -->
+        <div class="more-details"> Read More...</div>
+      </div>
+    </a>
 
         
     {% endfor %}
