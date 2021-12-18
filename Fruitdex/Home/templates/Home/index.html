@@ -5,22 +5,24 @@
 
 {% load static %}
     {% block content %}
-        <div class="container1 position-relative m-4 w-50 p-1 ">
-        
+    <!-- <div class="image" style="background-image: url('')" ><img src="{{ fruit.image.url }}" class="card-img-top" alt="..."> </div> -->
+        <!-- <div class="container1 m-4 w-50 p-1 justify-content-center"> -->
+        <div class="container1">
             <h2>Discover fresh fruits <br><span>from the Caribbean</span></h2>
-            <p>FruitDex is the best destination to search for a variety of Caribbean fruits. <br> To add new fruits please SignUp or Login!
-            <br> Click Discover to browse, search and add Caribbean Fruits. </p>
+            <p>FruitDex is the best destination to search for a variety of Caribbean fruits. 
+                <br> To add new fruits please SignUp or Login!
+                <br> You can browse, search and add Caribbean Fruits. 
+            </p>
             
             <img src= "{% static 'Home/images/landing.jpg' %}" class="img-fluid" alt="Landing Image"> 
             <br>
             <br>
+
             <div class="d-grid gap-3 d-md-flex justify-content-center" >
                 <a href="{% url 'signup' %}" class="btn btn-outline-info">SignUp</a>
                 <a href="{% url 'login' %}" class="btn btn-outline-info">Login</a>
                 <a href="{% url 'browse' %}" class="btn btn-outline-info">Browse</a>
             </div>
-            
-
-        </div>
+        </div> 
     {% endblock content %}
 
